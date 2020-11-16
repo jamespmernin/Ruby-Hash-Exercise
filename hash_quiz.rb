@@ -44,10 +44,19 @@ general_assembly[:campuses] = {
 
 # Questions: Write a line of code for each
 # Example: How many topics does GA have?
-# ga[:topics].count => 7
+# general_assembly[:topics].count => 7
 binding.pry
 # What number topic is 'Web Development'?
+general_assembly[:topics].find_index 'Web Development' # + 1
+
 # How many cities does GA have campuses in?
+general_assembly[:campuses].map {|campus, index| index.count}.reduce  {|sum, n| sum + n}
+
 # How many campuses does GA have?
+general_assembly[:campuses].count
+
 # How many campuses does GA have in Berlin?
+general_assembly[:campuses][:berlin].count
+
 # Print out all GA's campuses addresses
+general_assembly[:campuses].map { |k, v| v.map{ |location| puts location[:address] }}
